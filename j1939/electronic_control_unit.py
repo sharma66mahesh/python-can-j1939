@@ -288,7 +288,7 @@ class ElectronicControlUnit:
         """
         self.j1939_dll.notify(can_id, data, timestamp)
 
-    def add_bus_filters(self, fitlers: can.typechecking.CanFilters | None):
+    def add_bus_filters(self, filters: can.typechecking.CanFilters | None):
         """Add bus filters to the underlying CAN bus.
 
          :param filters:
@@ -297,7 +297,7 @@ class ElectronicControlUnit:
         """
         if self._bus is None:
             raise RuntimeError("Not connected to CAN bus")
-        self._bus.set_filters(fitlers)
+        self._bus.set_filters(filters)
 
     def _async_job_thread(self):
         """Asynchronous thread for handling various jobs
